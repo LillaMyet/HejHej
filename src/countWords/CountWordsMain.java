@@ -7,35 +7,27 @@ public class CountWordsMain {
 
         Scanner scan = new Scanner(System.in);
 
-
         System.out.println("Skriv in ord: ");
+        String words = scan.nextLine();
 
-        while(true) {
-            String words = scan.nextLine();
+        CountWords myRows = new CountWords();
+        myRows.stoped(words);
 
-            CountWords myRows = new CountWords();
+        while(!myRows.isStoped()) {
+
             myRows.addRows();
-            int rows = myRows.getRows();
 
-            CountWords myCharacter = new CountWords();
-            myCharacter.countCharacters(words);
-            int characters = myCharacter.getCharacters();
+            myRows.countCharacters(words);
 
-            CountWords myStop = new CountWords();
-            myStop.stoped(words);
-            boolean stop = myStop.isStoped();
+            words = scan.nextLine();
 
-            if (myStop.isStoped()){
-                System.out.println("Antal rader");
-                System.out.println(myRows.getRows());
-                System.out.println("Antalet tecken");
-                System.out.println(myCharacter.getCharacters());
-                break;
-            }
-
-
+            myRows.stoped(words);
 
         }
+        System.out.println("Antal rader");
+        System.out.println(myRows.getRows());
+        System.out.println("Antalet tecken");
+        System.out.println(myRows.getCharacters());
     }
 }
 

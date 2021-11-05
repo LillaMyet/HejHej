@@ -14,29 +14,25 @@ public class CountWords {
     }
 
     public int getRows() {
-
         return addRows;
     }
 
     public void addRows() {
-
         addRows = addRows + 1;
     }
 
     public int getCharacters() {
-
         return countCharacters;
     }
 
+    public void countCharacters(String text) {
+
+        countCharacters = countCharacters + text.length();
+        }
     public boolean isStoped() {
 
         return isStop;
     }
-
-    public void countCharacters(String text) {
-            countCharacters = countCharacters + text.length();
-        }
-
     public void stoped(String text){
         if (text.equals("stop")) {
             isStop = true;
